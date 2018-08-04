@@ -4,32 +4,42 @@ import People.Guest;
 import Rooms.Bedroom;
 import Rooms.ConferenceRoom;
 import Rooms.DiningRoom;
+import Rooms.Room;
 
 import java.util.ArrayList;
 
+
+//bedrooms is a new array that accepts object of Bedroom type
 public class Hotel {
     private Guest guest;
     private ArrayList<Bedroom> bedrooms;
     private ArrayList<ConferenceRoom> conferenceRooms;
-    private ArrayList<DiningRoom> diningRoom;
+    private ArrayList<DiningRoom> diningRooms;
 
+
+//    in constructor you need to create a new instance of the bedrooms array
     public Hotel() {
-        this.bedrooms = bedrooms;
-        this.conferenceRooms=conferenceRooms;
-        this.diningRoom= diningRoom;
+        bedrooms = new ArrayList<>();
+        conferenceRooms= new ArrayList<>();
+        diningRooms= new ArrayList<>();
         this.guest=guest;
     }
 
     public ArrayList<Bedroom> getBedrooms() {
         return bedrooms;
     }
+//YOU NEED TO DEFINE IT
+//    public ArrayList<Bedroom> getBedroomsType(Bedroom bedroomType) {
+//        return bedrooms(bedroomType);
+//    }
+
 
     public ArrayList<ConferenceRoom> getConferenceRooms() {
         return conferenceRooms;
     }
 
     public ArrayList<DiningRoom> getdiningRoom(){
-        return diningRoom;
+        return diningRooms;
     }
 
 //    add bedroom to system - COULD THIS BE A FUNCTION ON THE ROOM?
@@ -45,21 +55,23 @@ public class Hotel {
     diningRooms.add(diningRoom);
 }
 //  check in guest to bedroom- use ROOM not bedroom
-    public void addToBedroom(Bedroom bedroom, Guest guest) {
-    bedroom.checkIn(guest);
+//  change to boolean
+    public boolean addToBedroom(Bedroom bedroom, Guest guest) {
+    return bedroom.checkIn(guest);
 }
 
 //  remove guests from rooms - use ROOM not bedroom
-    public void removeFromBedroom(Bedroom bedroom, Guest guest) {
-    bedroom.checkOut(guest);
+//  change to boolean
+    public boolean removeFromBedroom(Bedroom bedroom, Guest guest) {
+    return bedroom.checkOut(guest);
 }
 
-    public void addToConferenceRoom(ConferenceRoom conferenceRoom, Guest guest) {
-        conferenceRoom.checkIn(guest);
+    public boolean addToConferenceRoom(ConferenceRoom conferenceRoom, Guest guest) {
+        return conferenceRoom.checkIn(guest);
     }
 
-    public void removeFromConferenceRoom(ConferenceRoom conferenceRoom, Guest guest) {
-        conferenceRoom.checkOut(guest);
+    public boolean removeFromConferenceRoom(ConferenceRoom conferenceRoom, Guest guest) {
+        return conferenceRoom.checkOut(guest);
     }
 
     public void addToDiningRoom(DiningRoom diningRoom, Guest guest) {
@@ -70,6 +82,8 @@ public class Hotel {
         diningRoom.checkOut(guest);
     }
 
-//    deny entry if capacity exceeded
+//   look for empty bedrooms
+//    for bedroom in bedrooms if capacity =! 0 print bedrooms
+
 
 }

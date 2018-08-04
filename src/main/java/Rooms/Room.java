@@ -36,13 +36,15 @@ public abstract class  Room {
     }
 
 //    Write if statements if passing tests
-    public void checkIn(Guest guest) {
+    public boolean checkIn(Guest guest) {
         guests.add(guest);
+        return true;
     }
 
 //    Write if statements if passing tests
-    public void checkOut(Guest guest) {
+    public boolean checkOut(Guest guest) {
         guests.remove(guest);
+        return true;
     }
 
     public abstract String roomInformation();
