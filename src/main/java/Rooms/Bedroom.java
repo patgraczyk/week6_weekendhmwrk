@@ -15,7 +15,7 @@ public class Bedroom extends Room {
     }
 
     public String roomInformation(){
-        return "This is room number" + roomNumber;
+        return "This is room number " + roomNumber;
     }
 
 }

@@ -4,7 +4,7 @@ public class DiningRoom extends Room {
 
     private String dishOfTheDay;
 
-    public DiningRoom (String getDishOfTheDay, int capacity, int rate){
+    public DiningRoom (String dishOfTheDay, int capacity, int rate){
         super(capacity, rate);
         this.dishOfTheDay=dishOfTheDay;
     }
