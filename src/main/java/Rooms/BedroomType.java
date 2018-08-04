@@ -7,16 +7,16 @@ public enum BedroomType {
     TWIN("Twin", 2),
     SUITE("Suite", 5);
 
-    private String roomType;
+    private String bedroomType;
     private int capacity;
 
     BedroomType(String roomType, int capacity) {
-        this.roomType = roomType;
+        this.bedroomType = roomType;
         this.capacity = capacity;
     }
 
     public String getRoomType() {
-        return roomType;
+        return bedroomType;
     }
 
     public int getCapacity() {

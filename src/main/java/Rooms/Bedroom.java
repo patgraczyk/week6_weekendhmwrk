@@ -5,7 +5,7 @@ public class Bedroom extends Room {
 
     private int roomNumber;
 
-    public Bedroom (int roomNumber, int capacity, int rate){
+    public Bedroom (int roomNumber, BedroomType capacity, int rate){
         super(capacity, rate);
         this.roomNumber=roomNumber;
     }
