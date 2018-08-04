@@ -3,10 +3,12 @@ package Rooms;
 
 public class Bedroom extends Room {
 
+    BedroomType type;
+
     private int roomNumber;
 
-    public Bedroom (int roomNumber, BedroomType capacity, int rate){
-        super(capacity, rate);
+    public Bedroom (int roomNumber, BedroomType type, int rate){
+        super(type.getCapacity(), rate);
         this.roomNumber=roomNumber;
     }
 

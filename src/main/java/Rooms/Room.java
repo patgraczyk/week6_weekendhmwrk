@@ -5,20 +5,20 @@ import People.Guest;
 import java.util.ArrayList;
 
 public abstract class  Room {
-    private BedroomType capacity;
+    private int capacity;
     private ConferenceRoomType conferenceRoomType;
     private int rate;
     private ArrayList<Guest> guests;
 
-    public Room(BedroomType capacity, int rate) {
+    public Room(int capacity, int rate) {
         this.capacity = capacity;
 //        this.conferenceRoomType=conferenceRoomType;
         guests = new ArrayList<>();
         this.rate = rate;
     }
 
-    public int getCapacityBedroom() {
-        return this.capacity.getCapacity();
+    public int getCapacity(){
+        return this.capacity;
     }
 
     public ArrayList<Guest> getGuests() {
