@@ -13,7 +13,7 @@ public class Hotel {
     private ArrayList<ConferenceRoom> conferenceRooms;
     private ArrayList<DiningRoom> diningRoom;
 
-    public Hotel(Guest guest, ArrayList<Bedroom> bedrooms, ArrayList<ConferenceRoom> conferenceRooms, ArrayList<DiningRoom> diningRoom) {
+    public Hotel() {
         this.bedrooms = bedrooms;
         this.conferenceRooms=conferenceRooms;
         this.diningRoom= diningRoom;
@@ -32,6 +32,18 @@ public class Hotel {
         return diningRoom;
     }
 
+//    add bedroom to system - COULD THIS BE A FUNCTION ON THE ROOM?
+    public void addBedroom(Bedroom bedroom){
+        bedrooms.add(bedroom);
+    }
+//    add conference room
+    public void addConferenceRoom(ConferenceRoom conferenceRoom){
+    conferenceRooms.add(conferenceRoom);
+    }
+//    add dining room
+    public void addDiningRoom(DiningRoom diningRoom){
+    diningRooms.add(diningRoom);
+}
 //  check in guest to bedroom- use ROOM not bedroom
     public void addToBedroom(Bedroom bedroom, Guest guest) {
     bedroom.checkIn(guest);
@@ -42,12 +54,12 @@ public class Hotel {
     bedroom.checkOut(guest);
 }
 
-    public void addToConerenceRoom(ConferenceRoom conferenceRoom, Guest guest) {
+    public void addToConferenceRoom(ConferenceRoom conferenceRoom, Guest guest) {
         conferenceRoom.checkIn(guest);
     }
 
     public void removeFromConferenceRoom(ConferenceRoom conferenceRoom, Guest guest) {
-        conferenceRoom.checkIn(guest);
+        conferenceRoom.checkOut(guest);
     }
 
     public void addToDiningRoom(DiningRoom diningRoom, Guest guest) {
@@ -55,7 +67,7 @@ public class Hotel {
     }
 
     public void removeFromDiningRoom(DiningRoom diningRoom, Guest guest) {
-        diningRoom.checkIn(guest);
+        diningRoom.checkOut(guest);
     }
 
 //    deny entry if capacity exceeded

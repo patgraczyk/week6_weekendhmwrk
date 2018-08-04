@@ -35,10 +35,12 @@ public abstract class  Room {
         return this.guests.size();
     }
 
+//    Write if statements if passing tests
     public void checkIn(Guest guest) {
         guests.add(guest);
     }
 
+//    Write if statements if passing tests
     public void checkOut(Guest guest) {
         guests.remove(guest);
     }
