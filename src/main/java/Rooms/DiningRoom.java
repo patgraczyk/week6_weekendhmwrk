@@ -1,6 +1,6 @@
 package Rooms;
 
-public class DiningRoom extends Room {
+public class DiningRoom<D extends Room> extends Room {
 
     private String dishOfTheDay;
 

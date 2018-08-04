@@ -27,10 +27,23 @@ public abstract class  Room {
         return this.rate;
     }
 
-//    public int checkIfSpaces(){
-//        return this.capacity - guests.size();
-//    }
+    public int checkIfSpaces(){
+        return this.capacity - guests.size();
+    }
+
+    public int guestCount() {
+        return this.guests.size();
+    }
+
+    public void checkIn(Guest guest) {
+        guests.add(guest);
+    }
+
+    public void checkOut(Guest guest) {
+        guests.remove(guest);
+    }
 
     public abstract String roomInformation();
+
 
 }

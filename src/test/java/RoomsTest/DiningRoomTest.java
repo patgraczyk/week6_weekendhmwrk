@@ -1,17 +1,18 @@
 package RoomsTest;
 
 import Rooms.DiningRoom;
+import Rooms.Room;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class DiningRoomTest {
-    DiningRoom diningRoom1;
+    DiningRoom<Room> diningRoom1;
 
     @Before
     public void before(){
-        diningRoom1 = new DiningRoom("Salmon", 25, 0);
+        diningRoom1 = new DiningRoom<Room>("Salmon", 25, 0);
     }
 
     @Test
