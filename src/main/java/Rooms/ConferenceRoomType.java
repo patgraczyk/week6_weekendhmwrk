@@ -6,17 +6,17 @@ public enum ConferenceRoomType {
     PENTLAND ("Pentland", 15),
     CAIRNGORM("Cairngorm", 20);
 
-    private String roomName;
+    private String conferenceRoomName;
     private int capacity;
 
 
     ConferenceRoomType(String roomName, int capacity) {
-        this.roomName = roomName;
+        this.conferenceRoomName = roomName;
         this.capacity = capacity;
     }
 
     public String getRoomName() {
-        return roomName;
+        return conferenceRoomName;
     }
 
     public int getCapacity() {

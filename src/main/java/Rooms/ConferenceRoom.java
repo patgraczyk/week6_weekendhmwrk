@@ -2,10 +2,12 @@ package Rooms;
 
 public class ConferenceRoom extends Room {
 
+    ConferenceRoom name;
+
     public String roomName;
 
-    public ConferenceRoom (String roomName, int capacity, int rate){
-        super(capacity, rate);
+    public ConferenceRoom (String roomName, ConferenceRoomType name, int rate){
+        super(name.getCapacity(), rate);
         this.roomName = roomName;
     }
 

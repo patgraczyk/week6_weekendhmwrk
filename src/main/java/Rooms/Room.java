@@ -6,13 +6,11 @@ import java.util.ArrayList;
 
 public abstract class  Room {
     private int capacity;
-    private ConferenceRoomType conferenceRoomType;
     private int rate;
     private ArrayList<Guest> guests;
 
     public Room(int capacity, int rate) {
         this.capacity = capacity;
-//        this.conferenceRoomType=conferenceRoomType;
         guests = new ArrayList<>();
         this.rate = rate;
     }
