@@ -94,47 +94,47 @@ public class HotelTest {
 //
 
     @Test
-    public void checkInGuest(){
-        assertEquals(true, hotel.addToBedroom(bedroom1, guest1));
-    }
-
-    @Test
-    public void checkOutGuest(){
-        hotel.addToBedroom(bedroom1, guest1);
-        assertEquals(true, hotel.removeFromBedroom(bedroom1, guest1));
+    public void checkInGuestToBedroom(){
+        assertEquals(true, hotel.addToRoom(bedroom1, guest1));
     }
 
     @Test
     public void checkInGuest_cannotafford(){
-        assertEquals(false, hotel.addToBedroom(bedroom2, guest4));
+        assertEquals(false, hotel.addToRoom(bedroom2, guest4));
     }
 
     @Test
-    public void checkInGuest_conference(){
-        assertEquals(true, hotel.addToConferenceRoom(conferenceRoom1, guest3));
-    }
-
-    @Test
-    public void checkOutGuest_conference(){
-        hotel.addToConferenceRoom(conferenceRoom1, guest3);
-        assertEquals(true, hotel.removeFromConferenceRoom(conferenceRoom1, guest3));
-    }
-
-    @Test
-    public void checkInGuestconference_cannotafford(){
-        hotel.addToConferenceRoom(conferenceRoom1, guest1);
-        assertEquals(false,hotel.addToConferenceRoom(conferenceRoom1, guest1));
+    public void checkInGuestToConference(){
+        assertEquals(true, hotel.addToRoom(conferenceRoom1, guest3));
     }
 
     @Test
     public void addGuestToDiningRoom(){
-        assertEquals(true, hotel.addToDiningRoom(diningRoom1,guest1));
+        assertEquals(true, hotel.addToRoom(diningRoom1,guest1));
     }
 
     @Test
     public void removeGuestsFromDiningRoom(){
-        hotel.addToDiningRoom(diningRoom1, guest4);
-        assertEquals(true, hotel.removeFromDiningRoom(diningRoom1, guest4));
+        hotel.addToRoom(diningRoom1, guest4);
+        assertEquals(true, hotel.removeFromRoom(diningRoom1, guest4));
+    }
+
+    @Test
+    public void checkOutGuest(){
+        hotel.addToRoom(bedroom1, guest1);
+        assertEquals(true, hotel.removeFromRoom(bedroom1, guest1));
+    }
+
+    @Test
+    public void checkOutGuest_conference(){
+        hotel.addToRoom(conferenceRoom1, guest3);
+        assertEquals(true, hotel.removeFromRoom(conferenceRoom1, guest3));
+    }
+
+    @Test
+    public void checkInGuestconference_cannotafford(){
+        hotel.addToRoom(conferenceRoom1, guest1);
+        assertEquals(false,hotel.addToRoom(conferenceRoom1, guest1));
     }
 
 
@@ -146,19 +146,17 @@ public class HotelTest {
 
     @Test
     public void exceedCapacityBedroom(){
-        hotel.addToBedroom(bedroom1, guest1);
-        hotel.addToBedroom(bedroom1, guest2);
-        assertEquals(true, hotel.addToBedroom(bedroom2, guest1));
-        assertEquals(false, hotel.addToBedroom(bedroom2, guest2));
+        hotel.addToRoom(bedroom1, guest1);
+        hotel.addToRoom(bedroom1, guest2);
+        assertEquals(true, hotel.addToRoom(bedroom2, guest1));
+        assertEquals(false, hotel.addToRoom(bedroom2, guest2));
     }
-
-
-//    at the moment returning an empty array
-//    @Test
-//    public void returnGuestsinRoom(){
-//        hotel.addToBedroom(bedroom3, guest3);
-//        assertEquals("Richard Hendricks", hotel.getlistofguests(bedroom3));
-//    }
+//
+    @Test
+    public void returnGuestsinRoom(){
+        hotel.addToRoom(bedroom3, guest3);
+        assertEquals("Richard Hendricks", hotel.getlistofguests(bedroom3));
+    }
 
     @Test
     public void getEmptyBedrooms(){
@@ -167,4 +165,21 @@ public class HotelTest {
         hotel.addBedroom(bedroom3);
         assertEquals(3, hotel.getEmptyBedrooms().size());
     }
+
+    @Test
+    public void getEmptyBedroomsGuests(){
+        hotel.addBedroom(bedroom1);
+        hotel.addBedroom(bedroom2);
+        hotel.addBedroom(bedroom3);
+        hotel.getBedrooms();
+        hotel.addToRoom(bedroom1, guest3);
+        assertEquals(3, hotel.getEmptyBedrooms().size());
+    }
+
+
+    //    @Test
+//    public void checkInGuest(){
+//        assertEquals(true, hotel.addToBedroom(bedroom1, guest1));
+//    }
+
 }

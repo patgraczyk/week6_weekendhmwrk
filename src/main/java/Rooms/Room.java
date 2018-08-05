@@ -65,6 +65,11 @@ public abstract class  Room {
         }
         return guestsInRoom;
     }
-
+//
+//    public ArrayList<String> returnGuestsInRoomName(){
+//        for (Guest guest : returnGuestsInRoom()){
+//
+//        }
+//    }
 
 }

@@ -58,32 +58,15 @@ public class Hotel {
         diningRooms.add(diningRoom);
     }
 
-    //  check in guest to bedroom- use ROOM not bedroom
+
+    //  new functions - refactored
 //  change to boolean
-    public boolean addToBedroom(Bedroom bedroom, Guest guest) {
-        return bedroom.checkIn(guest);
+    public boolean addToRoom(Room room, Guest guest) {
+        return room.checkIn(guest);
     }
 
-    //  remove guests from rooms - use ROOM not bedroom
-//  change to boolean
-    public boolean removeFromBedroom(Bedroom bedroom, Guest guest) {
-        return bedroom.checkOut(guest);
-    }
-
-    public boolean addToConferenceRoom(ConferenceRoom conferenceRoom, Guest guest) {
-        return conferenceRoom.checkIn(guest);
-    }
-
-    public boolean removeFromConferenceRoom(ConferenceRoom conferenceRoom, Guest guest) {
-        return conferenceRoom.checkOut(guest);
-    }
-
-    public boolean addToDiningRoom(DiningRoom diningRoom, Guest guest) {
-        return diningRoom.checkIn(guest);
-    }
-
-    public boolean removeFromDiningRoom(DiningRoom diningRoom, Guest guest) {
-        return diningRoom.checkOut(guest);
+    public boolean removeFromRoom(Room room, Guest guest) {
+        return room.checkOut(guest);
     }
 
 
@@ -95,9 +78,6 @@ public class Hotel {
 //   look for empty bedrooms
 //    for bedroom in bedrooms if capacity =! 0 print bedrooms [WRITE IN ROOMS]
 
-//    public ArrayList<Bedroom> getListOfEmptyBeds(Bedroom bedroom){
-//        return bedroom.emptyBedroom();
-//    }
 //
     public ArrayList<Bedroom> getEmptyBedrooms() {
         ArrayList<Bedroom> emptyBedrooms = new ArrayList<>();
@@ -110,3 +90,28 @@ public class Hotel {
 
 //   add number of nights
 }
+
+
+//FUNCTIONS OBSOLETE AFTER REFACTOR
+
+    //  remove guests from rooms - use ROOM not bedroom
+//  change to boolean
+//    public boolean removeFromBedroom(Bedroom bedroom, Guest guest) {
+//        return bedroom.checkOut(guest);
+//    }
+//
+//    public boolean addToConferenceRoom(ConferenceRoom conferenceRoom, Guest guest) {
+//        return conferenceRoom.checkIn(guest);
+//    }
+//
+//    public boolean removeFromConferenceRoom(ConferenceRoom conferenceRoom, Guest guest) {
+//        return conferenceRoom.checkOut(guest);
+//    }
+//
+//    public boolean addToDiningRoom(DiningRoom diningRoom, Guest guest) {
+//        return diningRoom.checkIn(guest);
+//    }
+//
+//    public boolean removeFromDiningRoom(DiningRoom diningRoom, Guest guest) {
+//        return diningRoom.checkOut(guest);
+//    }
