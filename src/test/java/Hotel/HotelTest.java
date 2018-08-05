@@ -5,6 +5,8 @@ import Rooms.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static Rooms.BedroomType.SINGLE;
 import static Rooms.BedroomType.TWIN;
 import static org.junit.Assert.assertEquals;
@@ -14,12 +16,17 @@ public class HotelTest {
     Hotel hotel;
     Guest guest1;
     Guest guest2;
+    Guest guest3;
+    Guest guest4;
+    ArrayList<Guest> guests;
     Bedroom bedroom1;
     Bedroom bedroom2;
     Bedroom bedroom3;
     ConferenceRoom conferenceRoom1;
     ConferenceRoom conferenceRoom2;
     DiningRoom diningRoom1;
+    DiningRoom diningRoom2;
+
 
     @Before
     public void before() {
@@ -30,8 +37,12 @@ public class HotelTest {
         conferenceRoom1 = new ConferenceRoom("Pentland", ConferenceRoomType.PENTLAND, 120);
         conferenceRoom2 = new ConferenceRoom("Grampian", ConferenceRoomType.GRAMPIAN, 110);
         diningRoom1 = new DiningRoom("Salmon", 80, 0);
+        diningRoom2 = new DiningRoom("Steak", 4, 0);
         guest1 = new Guest("Richard Hendricks", 100);
         guest2 = new Guest("Gavin Belson", 50);
+        guest3 = new Guest("Richard Bransons", 150);
+        guest4 = new Guest("Monica Richards", 30);
+        guests = new ArrayList<>();
     }
 
     @Test
@@ -89,22 +100,63 @@ public class HotelTest {
 
     @Test
     public void checkOutGuest(){
+        hotel.addToBedroom(bedroom1, guest1);
         assertEquals(true, hotel.removeFromBedroom(bedroom1, guest1));
+    }
 
+    @Test
+    public void checkInGuest_cannotafford(){
+        assertEquals(false, hotel.addToBedroom(bedroom2, guest4));
     }
 
     @Test
     public void checkInGuest_conference(){
-        assertEquals(true, hotel.addToConferenceRoom(conferenceRoom1, guest2));
+        assertEquals(true, hotel.addToConferenceRoom(conferenceRoom1, guest3));
     }
 
     @Test
     public void checkOutGuest_conference(){
-        assertEquals(true, hotel.removeFromConferenceRoom(conferenceRoom1, guest2));
+        hotel.addToConferenceRoom(conferenceRoom1, guest3);
+        assertEquals(true, hotel.removeFromConferenceRoom(conferenceRoom1, guest3));
     }
 
     @Test
-    public void checkInGuest_false(){
-        assertEquals(false,hotel.addToBedroom(bedroom1, guest1));
+    public void checkInGuestconference_cannotafford(){
+        hotel.addToConferenceRoom(conferenceRoom1, guest1);
+        assertEquals(false,hotel.addToConferenceRoom(conferenceRoom1, guest1));
+    }
+
+    @Test
+    public void addGuestToDiningRoom(){
+        assertEquals(true, hotel.addToDiningRoom(diningRoom1,guest1));
+    }
+
+    @Test
+    public void removeGuestsFromDiningRoom(){
+        hotel.addToDiningRoom(diningRoom1, guest4);
+        assertEquals(true, hotel.removeFromDiningRoom(diningRoom1, guest4));
+    }
+
+
+//    tried to add test that adds multiple guests at once to exceed capacity
+//    @Test
+//    public void deny_entry_exceededcapacity(){
+//        hotel.addToDiningRoom(diningRoom1, guests.add(guest1, guest2, guest3));
+//    }
+
+    @Test
+    public void exceedCapacityBedroom(){
+        hotel.addToBedroom(bedroom1, guest1);
+        hotel.addToBedroom(bedroom1, guest2);
+        assertEquals(true, hotel.addToBedroom(bedroom2, guest1));
+        assertEquals(false, hotel.addToBedroom(bedroom2, guest2));
+    }
+
+
+//    at the moment returning an empty array
+    @Test
+    public void returnGuestsinRoom(){
+        hotel.addToBedroom(bedroom3, guest3);
+        assertEquals("Richard Hendricks", hotel.getlistofguests(bedroom3));
     }
 }

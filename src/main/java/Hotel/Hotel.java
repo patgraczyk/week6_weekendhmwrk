@@ -28,7 +28,8 @@ public class Hotel {
     public ArrayList<Bedroom> getBedrooms() {
         return bedrooms;
     }
-//YOU NEED TO DEFINE IT
+
+    //YOU NEED TO DEFINE IT
 //    public ArrayList<Bedroom> getBedroomsType(Bedroom bedroomType) {
 //        return bedrooms(bedroomType);
 //    }
@@ -74,18 +75,22 @@ public class Hotel {
         return conferenceRoom.checkOut(guest);
     }
 
-    public void addToDiningRoom(DiningRoom diningRoom, Guest guest) {
-        diningRoom.checkIn(guest);
+    public boolean addToDiningRoom(DiningRoom diningRoom, Guest guest) {
+       return diningRoom.checkIn(guest);
     }
 
-    public void removeFromDiningRoom(DiningRoom diningRoom, Guest guest) {
-        diningRoom.checkOut(guest);
+    public boolean removeFromDiningRoom(DiningRoom diningRoom, Guest guest) {
+        return diningRoom.checkOut(guest);
     }
 
+
+    public ArrayList<Guest> getlistofguests(Bedroom bedroom){
+        return bedroom.returnGuestsInRoom();
+
+    }
 
 //   look for empty bedrooms
 //    for bedroom in bedrooms if capacity =! 0 print bedrooms [WRITE IN ROOMS]
-
 
 //   add number of nights
 }
