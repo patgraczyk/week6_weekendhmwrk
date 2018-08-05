@@ -154,11 +154,17 @@ public class HotelTest {
 
 
 //    at the moment returning an empty array
+//    @Test
+//    public void returnGuestsinRoom(){
+//        hotel.addToBedroom(bedroom3, guest3);
+//        assertEquals("Richard Hendricks", hotel.getlistofguests(bedroom3));
+//    }
+
     @Test
-    public void returnGuestsinRoom(){
-        hotel.addToBedroom(bedroom3, guest3);
-        assertEquals("Richard Hendricks", hotel.getlistofguests(bedroom3));
+    public void getEmptyBedrooms(){
+        hotel.addBedroom(bedroom1);
+        hotel.addBedroom(bedroom2);
+        hotel.addBedroom(bedroom3);
+        assertEquals(3, hotel.getEmptyBedrooms().size());
     }
-
-
 }
