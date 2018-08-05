@@ -82,6 +82,7 @@ public class Hotel {
         diningRoom.checkOut(guest);
     }
 
+
 //   look for empty bedrooms
 //    for bedroom in bedrooms if capacity =! 0 print bedrooms [WRITE IN ROOMS]
 

@@ -33,18 +33,6 @@ public abstract class  Room {
         return this.guests.size();
     }
 
-//    Write if statements if passing tests
-//    public boolean checkIn(Guest guest) {
-//        if (capacity > guests.size()){
-//            guests.add(guest);
-//            return true;
-//        } else {
-//            return false;
-//        }
-//
-//    }
-
-
     public boolean checkIn(Guest guest) {
         if (capacity > guests.size() && this.rate < guest.getMoney()){
             guests.add(guest);
@@ -57,13 +45,29 @@ public abstract class  Room {
 
 //    Write if statements if passing tests
     public boolean checkOut(Guest guest) {
-        guests.remove(guest);
+        if (guests.contains(guest)){
+            guests.clear();
         return true;
+    }else{
+            return false;
+        }
     }
 
     public abstract String roomInformation();
 
-    public int checkIfSpaces(){
-        return this.capacity - guests.size();
+//    get list of people in room
+
+    public ArrayList<Guest> returnGuests() {
+        guestsInHotel = new ArrayList<Guest>;
+        for (Guest guest : guests) {
+            if (guests.contains(guest)) {
+            }
+            guestsInHotel.add(guest.getName());
+        }
+        return guestsInHotel;
     }
+
+//    public int checkIfSpaces(){
+//        return this.capacity - guests.size();
+//    }
 }
