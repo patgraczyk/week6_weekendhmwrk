@@ -58,12 +58,13 @@ public abstract class  Room {
 //    get list of people in room
 
     public ArrayList<Guest> returnGuestsInRoom() {
-        ArrayList<Guest> guestsInRoom = new ArrayList<Guest>();
+        ArrayList<Guest> guestsInRoom = new ArrayList<>();
         for ( Guest guest : guests) {
             if (guests.contains(guest))
                 guestsInRoom.add(guest);
         }
         return guestsInRoom;
     }
+
 
 }

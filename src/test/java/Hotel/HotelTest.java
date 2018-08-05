@@ -159,4 +159,6 @@ public class HotelTest {
         hotel.addToBedroom(bedroom3, guest3);
         assertEquals("Richard Hendricks", hotel.getlistofguests(bedroom3));
     }
+
+
 }
