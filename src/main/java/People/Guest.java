@@ -10,7 +10,7 @@ public class Guest {
         this.guestMoney = guestMoney;
     }
 
-    public String getName(){
+    public Guest getName(){
         return this.guestName;
     }
 
