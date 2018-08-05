@@ -27,22 +27,32 @@ public abstract class  Room {
         return this.rate;
     }
 
-    public int checkIfSpaces(){
-        return this.capacity - guests.size();
-    }
+
 
     public int guestCount() {
         return this.guests.size();
     }
 
 //    Write if statements if passing tests
+//    public boolean checkIn(Guest guest) {
+//        if (capacity > guests.size()){
+//            guests.add(guest);
+//            return true;
+//        } else {
+//            return false;
+//        }
+//
+//    }
+
+
     public boolean checkIn(Guest guest) {
-        if (capacity > guests.size()){
+        if (capacity > guests.size() && this.rate < guest.getMoney()){
             guests.add(guest);
             return true;
         } else {
             return false;
         }
+
     }
 
 //    Write if statements if passing tests
@@ -53,5 +63,7 @@ public abstract class  Room {
 
     public abstract String roomInformation();
 
-
+    public int checkIfSpaces(){
+        return this.capacity - guests.size();
+    }
 }
