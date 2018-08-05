@@ -83,7 +83,8 @@ public class Hotel {
     }
 
 //   look for empty bedrooms
-//    for bedroom in bedrooms if capacity =! 0 print bedrooms
+//    for bedroom in bedrooms if capacity =! 0 print bedrooms [WRITE IN ROOMS]
 
 
+//   add number of nights
 }

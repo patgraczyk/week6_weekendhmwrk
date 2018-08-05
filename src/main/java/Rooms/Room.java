@@ -37,8 +37,12 @@ public abstract class  Room {
 
 //    Write if statements if passing tests
     public boolean checkIn(Guest guest) {
-        guests.add(guest);
-        return true;
+        if (capacity > guests.size()){
+            guests.add(guest);
+            return true;
+        } else {
+            return false;
+        }
     }
 
 //    Write if statements if passing tests

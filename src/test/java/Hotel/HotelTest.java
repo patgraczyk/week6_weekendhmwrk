@@ -102,4 +102,9 @@ public class HotelTest {
     public void checkOutGuest_conference(){
         assertEquals(true, hotel.removeFromConferenceRoom(conferenceRoom1, guest2));
     }
+
+    @Test
+    public void checkInGuest_false(){
+        assertEquals(false,hotel.addToBedroom(bedroom1, guest1));
+    }
 }
