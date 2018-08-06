@@ -8,6 +8,7 @@ public abstract class  Room {
     private int capacity;
     private int rate;
     private ArrayList<Guest> guests;
+    private ArrayList<String> results;
 
     public Room(int capacity, int rate) {
         this.capacity = capacity;
@@ -65,11 +66,14 @@ public abstract class  Room {
         }
         return guestsInRoom;
     }
-//
-//    public ArrayList<String> returnGuestsInRoomName(){
-//        for (Guest guest : returnGuestsInRoom()){
-//
-//        }
-//    }
+
+    public ArrayList<String> returnGuestsInRoomName(){
+        results = new ArrayList<String>();
+        for (Guest guest : returnGuestsInRoom()){
+            String temp = guest.getName();
+            results.add(temp);
+        }
+        return results;
+    }
 
 }
